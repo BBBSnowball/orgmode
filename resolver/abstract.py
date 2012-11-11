@@ -59,13 +59,13 @@ class AbstractLinkResolver(object):
         if not command:
             sublime.error_message('Could not get link opener command.\nPlatform not yet supported.')
             return None
-        
+
         content = content.encode(sys.getfilesystemencoding())
         cmd = command + [content]
         arg_list_wrapper = self.settings.get("orgmode.open_link.resolver.abstract.arg_list_wrapper", [])
         if arg_list_wrapper:  # NOTE never use shell=True below.
             cmd = arg_list_wrapper + [' '.join(cmd)]
-            source_filename = '\"'+self.view.file_name()+'\"'
+            source_filename = '\"' + self.view.file_name() + '\"'
             cmd += [source_filename]
             #TODO: hack here (outcommented)
             #cmd += ['--origin', source_filename, '--quiet']
@@ -83,7 +83,6 @@ class AbstractLinkResolver(object):
         if stderr:
             stderr = unicode(stderr, sys.getfilesystemencoding())
             sublime.error_message(stderr)
-        
 
 
 class AbstractRegexLinkResolver(AbstractLinkResolver):

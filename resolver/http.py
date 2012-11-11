@@ -5,7 +5,7 @@ Settings in Global.sublime-settings are:
 '''
 
 import re
-import urllib
+#import urllib
 import sys
 import subprocess
 
@@ -38,7 +38,7 @@ class Resolver(AbstractRegexLinkResolver):
         self.url = get(URL_SETTING, URL_DEFAULT)
         self.link_commands = self.settings.get('orgmode.open_link.resolver.abstract.commands', DEFAULT_OPEN_HTTP_LINK_COMMANDS)
 
-    def replace(self, match):    	
+    def replace(self, match):
         return self.url % match.group('url')
 
     def execute(self, content):
@@ -46,20 +46,20 @@ class Resolver(AbstractRegexLinkResolver):
         if not command:
             sublime.error_message('Could not get link opener command.\nNot yet supported.')
             return None
-        
+
         #TODO: abit windows hacky here.
         #works: cmd /c "start http://www.sublimetext.com/forum/viewtopic.php?f=5^&t=916"
         #cmd.exe quote is needed, http://ss64.com/nt/syntax-esc.html
-        #escape these: ^\  ^&  ^|  ^>  ^<  ^^ 
-        content = content.replace("^", "^^");
-        content = content.replace("&", "^&");
-        content = content.replace("\\", "^\\");
-        content = content.replace("|", "^|");
-        content = content.replace("<", "^<");
-        content = content.replace(">", "^>");
-        
-        content = content.encode(sys.getfilesystemencoding())        
-        cmd = command + ['start '+content]
+        #escape these: ^\  ^&  ^|  ^>  ^<  ^^
+        content = content.replace("^", "^^")
+        content = content.replace("&", "^&")
+        content = content.replace("\\", "^\\")
+        content = content.replace("|", "^|")
+        content = content.replace("<", "^<")
+        content = content.replace(">", "^>")
+
+        content = content.encode(sys.getfilesystemencoding())
+        cmd = command + ['start ' + content]
 
         print 'HTTP*****'
         print repr(content), content
