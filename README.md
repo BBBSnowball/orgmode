@@ -3,6 +3,14 @@ orgmode for sublime text editor
 
 handles .org files.
 
+This is a fork of danielmugnussons' repository. I have only added a few changes to make it work with Linux. I won't have the time to maintain it.
+
+Use this repository, if you use Windows: https://github.com/danielmagnussons/orgmode
+
+If you are using Linux, you should apply my changes and get updates from one of the other sources, as well.
+
+The rest of this document is copied from the original repo.
+
 HOWTO
 =============
 
