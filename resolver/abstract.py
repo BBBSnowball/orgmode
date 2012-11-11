@@ -21,8 +21,9 @@ DEFAULT_OPEN_LINK_COMMANDS = dict(
 
     win32=['cmd', '/C', 'start'],
 
-    # Dunno yet - help anyone?
-    # linux= FIXME ???
+    # found at:
+    # http://linuxcommando.blogspot.de/2009/05/open-file-from-command-line-using-its.html
+    linux=['xdg-open']
 )
 
 

@@ -20,11 +20,11 @@ URL_SETTING = 'orgmode.open_link.resolver.http.url'
 URL_DEFAULT = 'http:%s'
 
 
-
 DEFAULT_OPEN_HTTP_LINK_COMMANDS = dict(
     # Standard universal can opener for OSX.
     darwin=['open'],
     win32=['cmd', '/C'],
+    linux=['xdg-open']
 )
 
 
