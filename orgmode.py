@@ -36,7 +36,7 @@ def find_resolvers():
         patharr = name.split(os.path.sep)
         module, name = '.'.join(patharr), patharr[-1:]
         module = __import__(module, globals(), locals(), name)
-        module = reload(module)
+        #module = reload(module)
         if '__init__' in file_ or 'abstract' in file_:
             continue
         name = name[0]
